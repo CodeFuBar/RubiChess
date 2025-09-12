@@ -166,8 +166,8 @@ def main():
     print("=== UCI COMPATIBILITY DEBUGGING ===")
     
     engines = {
-        "Original RubiChess": r"d:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\RubiChess.exe",
-        "Modified RubiChess": r"d:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
+        "Original RubiChess": r"..\RubiChess\x64\Release\RubiChess.exe",
+        "Modified RubiChess": r"..\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
     }
     
     for name, path in engines.items():

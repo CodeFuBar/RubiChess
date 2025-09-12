@@ -41,8 +41,8 @@ def check_pgn_positions():
 def check_engines():
     """Check if engines are accessible"""
     engines = {
-        'Original RubiChess': r"d:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\RubiChess.exe",
-        'Modified RubiChess': r"d:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe",
+        'Original RubiChess': r"..\RubiChess\x64\Release\RubiChess.exe",
+        'Modified RubiChess': r"..\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe",
         'Stockfish': r"C:\Users\Andreas\AppData\Local\ChessBase\Engines\stockfish_15_win_x64_avx2.exe"
     }
     
@@ -63,7 +63,7 @@ def test_simple_analysis():
     # Simple starting position
     board = chess.Board()
     
-    modified_engine = r"d:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
+    modified_engine = r"..\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
     
     if Path(modified_engine).exists():
         try:

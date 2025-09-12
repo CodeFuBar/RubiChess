@@ -147,7 +147,7 @@ def main():
     """Main test function"""
     
     # Path to the modified engine
-    engine_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
+    engine_path = r"..\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
     
     print("RubiChess Phase 1 - ChessBase Compatibility Test")
     print("=" * 60)

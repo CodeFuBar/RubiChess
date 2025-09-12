@@ -93,8 +93,8 @@ def test_phase1_implementation():
     
     # Configuration
     pgn_file = "comprehensive_positions.pgn"
-    original_engine = r"d:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\RubiChess.exe"
-    modified_engine = r"d:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
+    original_engine = r"..\RubiChess\x64\Release\RubiChess.exe"
+    modified_engine = r"..\RubiChess\src\Release-modified\RubiChess_1.1_dev_20250911_001_x86-64-avx2.exe"
     stockfish_engine = r"C:\Program Files (x86)\Common Files\ChessBase\Engines.uci\Stockfish_25090605_x64_avx2\stockfish_25090605_x64_avx2.exe"
     
     print("=== Phase 1 RubiChess Endgame Optimization Test ===")

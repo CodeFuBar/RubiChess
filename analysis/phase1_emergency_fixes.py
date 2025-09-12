@@ -19,7 +19,7 @@ class Phase1EmergencyFixes:
     def __init__(self):
         self.target_positions = [135, 136, 137, 138, 139, 140, 141, 142]
         self.pgn_file = "weakness_test_positions.pgn"
-        self.rubichess_path = r"d:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\RubiChess.exe"
+        self.rubichess_path = r"..\RubiChess\x64\Release\RubiChess.exe"
         self.stockfish_path = r"C:\Program Files (x86)\Common Files\ChessBase\Engines.uci\Stockfish_25090605_x64_avx2\stockfish_25090605_x64_avx2.exe"
         
         # Analysis settings
