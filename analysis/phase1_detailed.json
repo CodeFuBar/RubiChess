@@ -1,0 +1,483 @@
+{
+  "phase": "Phase 1 - Emergency Fixes",
+  "timestamp": "2025-09-11 20:27:48",
+  "positions": [
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142
+  ],
+  "baseline_results": {
+    "135": {
+      "move": "d3d4",
+      "evaluation": -815,
+      "pv": [
+        "d3d4",
+        "h8h2",
+        "d4c3",
+        "h2d2",
+        "c3b3",
+        "d2g2",
+        "b3c4",
+        "g2g8",
+        "c4b3",
+        "g8a8",
+        "b3b2",
+        "a8h8",
+        "b2b3",
+        "d1c1",
+        "b3a2",
+        "h8h3",
+        "a2a1",
+        "c1c2"
+      ],
+      "nodes": 78962,
+      "time": 0.027,
+      "success": true
+    },
+    "136": {
+      "move": "h1h3",
+      "evaluation": 811,
+      "pv": [
+        "h1h3",
+        "d3d4",
+        "d1d2",
+        "d4e4",
+        "h3g3",
+        "e4f4",
+        "g3b3",
+        "f4e4",
+        "b3h3",
+        "e4f4",
+        "d2c1",
+        "f4e4",
+        "c1b1",
+        "e4d4",
+        "b1a1",
+        "d4c4",
+        "h3g3",
+        "c4b4",
+        "g3g8",
+        "b4b3",
+        "g8h8"
+      ],
+      "nodes": 90785,
+      "time": 0.052,
+      "success": true
+    },
+    "137": {
+      "move": "h1h2",
+      "evaluation": 805,
+      "pv": [
+        "h1h2",
+        "e2d3",
+        "h2d2",
+        "d3c3",
+        "d2d6",
+        "c3c4",
+        "d6d7",
+        "c4c3",
+        "d7d5",
+        "c3c4",
+        "d5d6",
+        "c4b5",
+        "d6f6",
+        "b5c4",
+        "c1b1",
+        "c4b3",
+        "f6h6",
+        "b3a4",
+        "h6h8",
+        "a4b3"
+      ],
+      "nodes": 50348,
+      "time": 0.016,
+      "success": true
+    },
+    "138": {
+      "move": "d3c3",
+      "evaluation": -825,
+      "pv": [
+        "d3c3",
+        "h5h3",
+        "d2d3",
+        "d1e2",
+        "c3d4",
+        "h3d3",
+        "d4e4",
+        "d3d1",
+        "e4f5",
+        "e2f1",
+        "f5g4",
+        "d1a1",
+        "g4h4",
+        "a1a8",
+        "h4g3",
+        "a8g8",
+        "g3f3",
+        "f1g1",
+        "f3f4",
+        "g8a8",
+        "f4g4",
+        "a8g8",
+        "g4h3"
+      ],
+      "nodes": 79952,
+      "time": 0.029,
+      "success": true
+    },
+    "139": {
+      "move": "d3e3",
+      "evaluation": -829,
+      "pv": [
+        "d3e3",
+        "h8h3",
+        "e3e4",
+        "d1d2",
+        "e4f4",
+        "d2e1",
+        "f4g4",
+        "h3h8",
+        "g4f5",
+        "h8a8",
+        "f5f6",
+        "e1f1",
+        "f6f7",
+        "f1g1",
+        "f7g7",
+        "a8c8",
+        "g7f7",
+        "c8b8"
+      ],
+      "nodes": 84502,
+      "time": 0.031,
+      "success": true
+    },
+    "140": {
+      "move": "c1d2",
+      "evaluation": 811,
+      "pv": [
+        "c1d2",
+        "d4e4",
+        "h1h4",
+        "e4f5",
+        "d2c1",
+        "f5e5",
+        "c1b1",
+        "e5e6",
+        "h4h2",
+        "e6d7",
+        "h2h3",
+        "d7c7",
+        "h3h8",
+        "c7b6",
+        "h8h4",
+        "b6a7",
+        "b1a1",
+        "a7b7",
+        "h4h3"
+      ],
+      "nodes": 75636,
+      "time": 0.023,
+      "success": true
+    },
+    "141": {
+      "move": "h4h3",
+      "evaluation": 810,
+      "pv": [
+        "h4h3",
+        "d2d3",
+        "d1e2",
+        "c3d4",
+        "h3d3",
+        "d4e4",
+        "d3e3",
+        "e4f4",
+        "e3b3",
+        "f4g4",
+        "b3b8",
+        "g4g5",
+        "b8b4",
+        "g5g6",
+        "e2f1",
+        "g6g5",
+        "b4d4",
+        "g5h5",
+        "d4d8",
+        "h5g4",
+        "d8g8",
+        "g4f3"
+      ],
+      "nodes": 51013,
+      "time": 0.019,
+      "success": true
+    },
+    "142": {
+      "move": "h1h3",
+      "evaluation": 818,
+      "pv": [
+        "h1h3",
+        "c3d4",
+        "e1d2",
+        "d4d5",
+        "d2e2",
+        "d5d4",
+        "h3a3",
+        "d4e4",
+        "e2e1",
+        "e4e5",
+        "e1f1",
+        "e5e4",
+        "a3a4",
+        "e4d3",
+        "a4a7",
+        "d3e4",
+        "a7a3",
+        "e4d4",
+        "a3a8"
+      ],
+      "nodes": 93775,
+      "time": 0.037,
+      "success": true
+    }
+  },
+  "modified_results": {
+    "135": {
+      "move": "d3e3",
+      "evaluation": -502,
+      "pv": [
+        "d3e3",
+        "h8d8",
+        "e3e4",
+        "d8d2",
+        "e4e3",
+        "d1c1",
+        "e3f3",
+        "d2d6",
+        "f3e3",
+        "d6e6",
+        "e3d3"
+      ],
+      "nodes": 39516,
+      "time": 0.013,
+      "success": true
+    },
+    "136": {
+      "move": "h1h3",
+      "evaluation": 494,
+      "pv": [
+        "h1h3",
+        "d3e4",
+        "d1d2",
+        "e4f4",
+        "h3b3",
+        "f4e4",
+        "b3b1",
+        "e4f4",
+        "b1f1",
+        "f4e5",
+        "d2e1",
+        "e5d6",
+        "f1f2",
+        "d6e5",
+        "f2d2"
+      ],
+      "nodes": 49369,
+      "time": 0.015,
+      "success": true
+    },
+    "137": {
+      "move": "h1h3",
+      "evaluation": 485,
+      "pv": [
+        "h1h3",
+        "d2d4",
+        "h3a3",
+        "d4d5",
+        "c1c2",
+        "d5d6",
+        "a3d3",
+        "d6d7",
+        "d3d7",
+        "e2e3",
+        "c2b3",
+        "e3e4",
+        "d7d6",
+        "e4f5"
+      ],
+      "nodes": 38305,
+      "time": 0.014,
+      "success": true
+    },
+    "138": {
+      "move": "d3c3",
+      "evaluation": -465,
+      "pv": [
+        "d3c3",
+        "d1e2",
+        "d2d3",
+        "e2f3",
+        "c3d4",
+        "f3f4",
+        "d4c3",
+        "f4g5",
+        "c3c4",
+        "h5h8"
+      ],
+      "nodes": 72811,
+      "time": 0.028,
+      "success": true
+    },
+    "139": {
+      "move": "d3d4",
+      "evaluation": -449,
+      "pv": [
+        "d3d4",
+        "d1d2",
+        "d4e5",
+        "h8e8",
+        "e5d6",
+        "d2e1",
+        "d6d7",
+        "e8e3",
+        "d7d6",
+        "e1f1"
+      ],
+      "nodes": 115655,
+      "time": 0.031,
+      "success": true
+    },
+    "140": {
+      "move": "c1d2",
+      "evaluation": 460,
+      "pv": [
+        "c1d2",
+        "d4e5",
+        "d2e2",
+        "e5d6",
+        "h1a1",
+        "d6c6",
+        "a1c1",
+        "c6d6",
+        "e2f1",
+        "d6d7"
+      ],
+      "nodes": 61114,
+      "time": 0.017,
+      "success": true
+    },
+    "141": {
+      "move": "h4h3",
+      "evaluation": 480,
+      "pv": [
+        "h4h3",
+        "c3d4",
+        "d1d2",
+        "d4e5",
+        "h3c3",
+        "e5d4",
+        "c3e3",
+        "d4d5",
+        "d2c1",
+        "d5d6",
+        "c1d1",
+        "d6d5"
+      ],
+      "nodes": 43400,
+      "time": 0.014,
+      "success": true
+    },
+    "142": {
+      "move": "e1e2",
+      "evaluation": 466,
+      "pv": [
+        "e1e2",
+        "c3c4",
+        "e2d2",
+        "c4d5",
+        "d2e2",
+        "d5d6"
+      ],
+      "nodes": 43087,
+      "time": 0.014,
+      "success": true
+    }
+  },
+  "metrics": {
+    "positions": {
+      "135": {
+        "baseline_eval": -815,
+        "modified_eval": -502,
+        "eval_difference": 313,
+        "move_agreement": false,
+        "baseline_move": "d3d4",
+        "modified_move": "d3e3"
+      },
+      "136": {
+        "baseline_eval": 811,
+        "modified_eval": 494,
+        "eval_difference": -317,
+        "move_agreement": true,
+        "baseline_move": "h1h3",
+        "modified_move": "h1h3"
+      },
+      "137": {
+        "baseline_eval": 805,
+        "modified_eval": 485,
+        "eval_difference": -320,
+        "move_agreement": false,
+        "baseline_move": "h1h2",
+        "modified_move": "h1h3"
+      },
+      "138": {
+        "baseline_eval": -825,
+        "modified_eval": -465,
+        "eval_difference": 360,
+        "move_agreement": true,
+        "baseline_move": "d3c3",
+        "modified_move": "d3c3"
+      },
+      "139": {
+        "baseline_eval": -829,
+        "modified_eval": -449,
+        "eval_difference": 380,
+        "move_agreement": false,
+        "baseline_move": "d3e3",
+        "modified_move": "d3d4"
+      },
+      "140": {
+        "baseline_eval": 811,
+        "modified_eval": 460,
+        "eval_difference": -351,
+        "move_agreement": true,
+        "baseline_move": "c1d2",
+        "modified_move": "c1d2"
+      },
+      "141": {
+        "baseline_eval": 810,
+        "modified_eval": 480,
+        "eval_difference": -330,
+        "move_agreement": true,
+        "baseline_move": "h4h3",
+        "modified_move": "h4h3"
+      },
+      "142": {
+        "baseline_eval": 818,
+        "modified_eval": 466,
+        "eval_difference": -352,
+        "move_agreement": false,
+        "baseline_move": "h1h3",
+        "modified_move": "e1e2"
+      }
+    },
+    "aggregate": {
+      "avg_eval_diff": 340.375,
+      "move_agreement_rate": 50.0,
+      "valid_comparisons": 8
+    }
+  }
+}

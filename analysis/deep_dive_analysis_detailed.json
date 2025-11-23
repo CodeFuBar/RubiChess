@@ -1,0 +1,298 @@
+{
+  "135": {
+    "fen": "7R/8/8/8/8/3k4/3p4/3K4 b - - 1 1",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 135,
+      "fen": "7R/8/8/8/8/3k4/3p4/3K4 b - - 1 1",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  },
+  "136": {
+    "fen": "8/8/8/8/8/3K4/3P4/3k3r b - - 0 1",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 136,
+      "fen": "8/8/8/8/8/3K4/3P4/3k3r b - - 0 1",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  },
+  "137": {
+    "fen": "8/8/8/8/8/8/3PK3/2k4r b - - 2 2",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 137,
+      "fen": "8/8/8/8/8/8/3PK3/2k4r b - - 2 2",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  },
+  "138": {
+    "fen": "8/8/8/7r/8/3K4/3P4/3k4 w - - 1 2",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 138,
+      "fen": "8/8/8/7r/8/3K4/3P4/3k4 w - - 1 2",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  },
+  "139": {
+    "fen": "7r/8/8/8/8/3K4/3P4/3k4 w - - 1 2",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 139,
+      "fen": "7r/8/8/8/8/3K4/3P4/3k4 w - - 1 2",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  },
+  "140": {
+    "fen": "8/8/8/8/3K4/8/3P4/2k4r b - - 2 2",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 140,
+      "fen": "8/8/8/8/3K4/8/3P4/2k4r b - - 2 2",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  },
+  "141": {
+    "fen": "8/8/8/8/7r/2K5/3P4/3k4 b - - 2 2",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 141,
+      "fen": "8/8/8/8/7r/2K5/3P4/3k4 b - - 2 2",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  },
+  "142": {
+    "fen": "8/8/8/8/8/2K5/3P4/4k2r b - - 2 2",
+    "baseline": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "extended": {
+      "engine": "RubiChess",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "reference": {
+      "engine": "Stockfish",
+      "success": false,
+      "error": "'list' object has no attribute 'pv'",
+      "time": 0
+    },
+    "heuristics": {
+      "flags": [],
+      "issues": []
+    },
+    "annotation": {
+      "position_id": 142,
+      "fen": "8/8/8/8/8/2K5/3P4/4k2r b - - 2 2",
+      "baseline_move": "N/A",
+      "baseline_eval": "N/A",
+      "extended_move": "N/A",
+      "extended_eval": "N/A",
+      "reference_move": "N/A",
+      "reference_eval": "N/A",
+      "detected_issues": [],
+      "notes": ""
+    }
+  }
+}

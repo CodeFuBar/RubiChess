@@ -198,7 +198,7 @@ typedef unsigned int PieceType;
 #else
 #define VERSION GITVER
 #endif
-#define ENGINEVER "RubiChess " VERSION
+#define ENGINEVER "RubiChess+ " VERSION
 #ifdef GITID
 #define BUILD "commit " GITID " " COMPILER
 #else
@@ -580,22 +580,22 @@ struct evalparamset {
            VALUE(  86,  51), VALUE(  85,  58), VALUE(  86,  52), VALUE(  95,  55), VALUE( 100,  54), VALUE(  89,  60), VALUE(   0,   0), VALUE(   0,   0),
            VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0),
            VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0)  },
-        {  VALUE( -57,  11), VALUE(  14,  17), VALUE(  31,  57), VALUE(  34,  70), VALUE(  36,  82), VALUE(  38,  90), VALUE(  40,  92), VALUE(  46,  96),
-           VALUE(  47, 101), VALUE(  50, 111), VALUE(  54, 109), VALUE(  50, 115), VALUE(  49, 118), VALUE(  50, 116), VALUE(  44, 116), VALUE(   0,   0),
+        {  VALUE( -47,  21), VALUE(  24,  27), VALUE(  41,  67), VALUE(  44,  80), VALUE(  46,  92), VALUE(  48, 100), VALUE(  50, 102), VALUE(  56, 106),
+           VALUE(  57, 111), VALUE(  60, 121), VALUE(  64, 119), VALUE(  60, 125), VALUE(  59, 128), VALUE(  60, 126), VALUE(  54, 126), VALUE(   0,   0),
            VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0),
            VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0), VALUE(   0,   0)  },
-        {  VALUE(   0,-200), VALUE(  13,-157), VALUE(  -2,  31), VALUE(   3,  75), VALUE(   5,  94), VALUE(   4, 152), VALUE(   6, 161), VALUE(  11, 177),
-           VALUE(  10, 192), VALUE(  15, 187), VALUE(  14, 212), VALUE(  17, 213), VALUE(  16, 227), VALUE(  18, 229), VALUE(  17, 242), VALUE(  19, 251),
-           VALUE(  20, 253), VALUE(  21, 256), VALUE(  18, 263), VALUE(  13, 270), VALUE(  45, 244), VALUE(  67, 233), VALUE(  72, 241), VALUE(  80, 230),
-           VALUE(  69, 264), VALUE( 108, 231), VALUE( 107, 230), VALUE( 114, 198)  }
+        {  VALUE(   0,-200), VALUE(  13,-157), VALUE(  -2,  31), VALUE(   3,  75), VALUE(   5,  94), VALUE(   4, 162), VALUE(   6, 171), VALUE(  11, 187),
+           VALUE(  10, 202), VALUE(  15, 197), VALUE(  14, 222), VALUE(  17, 223), VALUE(  16, 237), VALUE(  18, 239), VALUE(  17, 252), VALUE(  19, 261),
+           VALUE(  20, 263), VALUE(  21, 266), VALUE(  18, 273), VALUE(  13, 280), VALUE(  45, 254), VALUE(  67, 243), VALUE(  72, 251), VALUE(  80, 240),
+           VALUE(  69, 274), VALUE( 108, 241), VALUE( 107, 240), VALUE( 114, 208)  }
     };
     eval eNocastlepenalty = VALUE(-5, 5);
-    eval eRookon7thbonus =  VALUE(  -1,  22);
-    eval eRookonkingarea =  VALUE(   7,  -6);
+    eval eRookon7thbonus =  VALUE(   9,  32);
+    eval eRookonkingarea =  VALUE(  17,   4);
     eval eBishoponkingarea =  VALUE(  10,   2);
     eval eQueenattackedbysliderpenalty =  VALUE( -30,  17);
     eval eMinorbehindpawn[6] = {  VALUE(   1,  14), VALUE(  12,  10), VALUE(  15,  11), VALUE(  24,   9), VALUE(  37,  11), VALUE(  89, 110)  };
-    eval eSlideronfreefilebonus[2] = {  VALUE(  21,   7), VALUE(  43,   1)  };
+    eval eSlideronfreefilebonus[2] = {  VALUE(  31,  17), VALUE(  53,  11)  };
     eval eMaterialvalue[7] = {  VALUE(   0,   0), VALUE( 100, 100), VALUE( 314, 314), VALUE( 314, 314), VALUE( 483, 483), VALUE( 913, 913), VALUE(   0,   0)  };
     eval eKingshieldbonus =  VALUE(  15,  -2);
     eval eWeakkingringpenalty =  SQVALUE(   1,  70);
@@ -654,11 +654,11 @@ struct evalparamset {
            VALUE( -15, 208), VALUE( -15, 204), VALUE( -11, 223), VALUE(   8, 187), VALUE(  -2, 209), VALUE( -29, 222), VALUE(   8, 195), VALUE(  -7, 227)  },
         {  VALUE(-116,-112), VALUE(  22, -21), VALUE( -13,  20), VALUE( -84,  45), VALUE(-171,  79), VALUE(-115,  85), VALUE( -23,  -7), VALUE( -99, -75),
            VALUE(-107,  24), VALUE( -11,  61), VALUE( -23,  93), VALUE(-103,  87), VALUE(-108,  92), VALUE( -38,  78), VALUE(  -6,  73), VALUE(-141,  24),
-           VALUE(-178,  28), VALUE( -20,  51), VALUE( -43,  67), VALUE( -69,  85), VALUE( -36,  81), VALUE( -10,  64), VALUE( -52,  61), VALUE(-131,  33),
-           VALUE(-156,  13), VALUE( -33,  31), VALUE( -72,  59), VALUE( -69,  75), VALUE( -37,  71), VALUE( -32,  55), VALUE( -50,  41), VALUE(-158,  22),
-           VALUE(-134,   6), VALUE( -81,  27), VALUE( -38,  46), VALUE( -85,  63), VALUE( -53,  54), VALUE( -54,  43), VALUE( -67,  22), VALUE(-160,   2),
-           VALUE( -55, -23), VALUE( -27,   1), VALUE( -50,  25), VALUE( -58,  41), VALUE( -59,  44), VALUE( -42,  24), VALUE( -30,   4), VALUE( -61,  -7),
-           VALUE(  34, -43), VALUE(   3,  -9), VALUE( -19,  13), VALUE( -43,  17), VALUE( -49,  20), VALUE( -29,  15), VALUE(   3,  -4), VALUE(   9, -28),
+           VALUE(-178,  28), VALUE( -20,  61), VALUE( -43,  87), VALUE( -69, 105), VALUE( -36, 101), VALUE( -10,  84), VALUE( -52,  81), VALUE(-131,  33),
+           VALUE(-156,  13), VALUE( -33,  51), VALUE( -72,  79), VALUE( -49,  115), VALUE( -17,  111), VALUE( -12,  95), VALUE( -50,  61), VALUE(-158,  22),
+           VALUE(-134,   6), VALUE( -81,  47), VALUE( -18,  86), VALUE( -65,  103), VALUE( -33,  94), VALUE( -34,  83), VALUE( -67,  42), VALUE(-160,   2),
+           VALUE( -55, -23), VALUE( -27,  21), VALUE( -30,  65), VALUE( -38,  81), VALUE( -39,  84), VALUE( -22,  64), VALUE( -30,  24), VALUE( -61,  -7),
+           VALUE(  34, -43), VALUE(   3,  11), VALUE( -19,  33), VALUE( -43,  37), VALUE( -49,  40), VALUE( -29,  35), VALUE(   3,  16), VALUE(   9, -28),
            VALUE(  16, -73), VALUE(  45, -54), VALUE(  28, -23), VALUE( -70,   2), VALUE( -11, -16), VALUE( -45,   1), VALUE(  18, -31), VALUE(  24, -67)  }
     };
 };
@@ -2074,7 +2074,7 @@ class engine
 public:
     engine(compilerinfo *c);
     ~engine();
-    const string author = "Andreas Matthies";
+    const string author = "Andreas Matthies, modified by Martin van der Hoek";
     U64 thinkstarttime;
     U64 clockstarttime;
     U64 clockstoptime;

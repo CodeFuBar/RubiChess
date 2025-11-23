@@ -1,0 +1,9 @@
+position_id,fen,baseline_move,baseline_eval,extended_move,extended_eval,reference_move,reference_eval,detected_issues,notes
+135,7R/8/8/8/8/3k4/3p4/3K4 b - - 1 1,N/A,N/A,N/A,N/A,N/A,N/A,,
+136,8/8/8/8/8/3K4/3P4/3k3r b - - 0 1,N/A,N/A,N/A,N/A,N/A,N/A,,
+137,8/8/8/8/8/8/3PK3/2k4r b - - 2 2,N/A,N/A,N/A,N/A,N/A,N/A,,
+138,8/8/8/7r/8/3K4/3P4/3k4 w - - 1 2,N/A,N/A,N/A,N/A,N/A,N/A,,
+139,7r/8/8/8/8/3K4/3P4/3k4 w - - 1 2,N/A,N/A,N/A,N/A,N/A,N/A,,
+140,8/8/8/8/3K4/8/3P4/2k4r b - - 2 2,N/A,N/A,N/A,N/A,N/A,N/A,,
+141,8/8/8/8/7r/2K5/3P4/3k4 b - - 2 2,N/A,N/A,N/A,N/A,N/A,N/A,,
+142,8/8/8/8/8/2K5/3P4/4k2r b - - 2 2,N/A,N/A,N/A,N/A,N/A,N/A,,

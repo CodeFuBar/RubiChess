@@ -1,0 +1,17 @@
+position_id,fen,rubichess_eval,stockfish_eval,eval_difference,rubichess_move,stockfish_move,move_agreement,phase,reason
+15,2kr3r/pppq1ppp/3p1n2/2b1p3/2B1P1b1/2NP1N2/PPP1QPPP/R1B1K2R w KQ - 0 1,542,424,118,h2h3,c4b3,False,opening,Large evaluation difference: +118cp
+22,8/8/3k4/2ppp3/2PPP3/3K4/8/8 w - - 0 1,783,655,128,d4c5,d4c5,True,endgame,Large evaluation difference: +128cp
+23,8/1p6/kP6/8/8/8/5K2/8 w - - 0 1,-701,-558,-143,f2e1,f2e3,False,endgame,Large evaluation difference: -143cp
+26,8/8/8/R7/8/3k4/5r2/4K3 w - - 0 1,796,510,286,e1f2,e1f2,True,endgame,Large evaluation difference: +286cp
+27,8/8/8/8/5R2/3k4/5r2/4K3 w - - 0 1,797,506,291,f4f2,f4f2,True,endgame,Large evaluation difference: +291cp
+35,8/8/8/8/8/3k1r2/8/4KR2 w - - 0 1,775,470,305,f1f3,f1f3,True,endgame,Large evaluation difference: +305cp
+36,8/8/8/8/8/3k1n2/8/4KR2 w - - 0 1,775,540,235,f1f3,f1f3,True,endgame,Large evaluation difference: +235cp
+37,8/8/8/8/8/3k1b2/8/4KR2 w - - 0 1,775,466,309,f1f3,f1f3,True,endgame,Large evaluation difference: +309cp
+39,8/8/8/8/8/1K6/2P5/1k6 w - - 0 1,967,719,248,c2c4,c2c4,True,endgame,Large evaluation difference: +248cp
+60,rn1qkbnr/pbp1p2p/5pp1/3p4/2pP4/P2Q4/1P1BPPPP/RN2KBNR b KQkq - 2 8,488,741,-253,c4d3,c4d3,True,opening,Large evaluation difference: -253cp
+61,rnb3nr/p2pbkp1/2p1p2p/qp1N1p2/PP6/2P2P1N/1BQPP1PP/R3KB1R w KQ - 2 11,531,708,-177,b4a5,b4a5,True,opening,Large evaluation difference: -177cp
+98,rnb1kbnr/p1pp1ppp/8/1p2p1q1/P5P1/3P3P/1PP1PP2/RNBQKBNR w KQkq - 1 5,500,681,-181,c1g5,c1g5,True,opening,Large evaluation difference: -181cp
+103,r2q2nr/ppp1pkbp/4bpp1/3P1P2/2Q5/3P4/PPP3PP/RNB1KBNR w KQ - 1 10,548,713,-165,b1c3,f5e6,False,opening,Large evaluation difference: -165cp
+111,rnbq1knr/1ppp4/p4p2/2b1p1Pp/3P4/2N4P/PPP1P1P1/R1BQKBNR w - - 1 10,707,575,132,d4c5,d4c5,True,opening,Large evaluation difference: +132cp
+115,rnb1kbnr/p2p1p2/1p2p3/q5pp/1PP5/N2QB2N/P1P1PPPP/R3KB1R w KQkq - 0 8,588,706,-118,b4a5,b4a5,True,opening,Large evaluation difference: -118cp
+129,rnbqk1nr/6p1/Bpp1pp1p/p3P3/1b1p3P/5PP1/P1PP1K2/RNBQ2NR b kq - 0 10,702,515,187,b8a6,a8a6,False,opening,Large evaluation difference: +187cp

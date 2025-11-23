@@ -1,0 +1,9 @@
+Position,FEN,Baseline_Move,Baseline_Eval,Extended_Move,Extended_Eval,Reference_Move,Reference_Eval,Issues,Flags
+135,7R/8/8/8/8/3k4/3p4/3K4 b - - 1 1,d3d4,-815,d3d4,-797,d3e4,-448,Move differs from Stockfish: d3d4 vs d3e4; Evaluation differs from Stockfish by 367cp,"MOVE_DIFFERS_FROM_REFERENCE, LARGE_EVAL_DIFF_VS_REFERENCE"
+136,8/8/8/8/8/3K4/3P4/3k3r b - - 0 1,h1h3,811,h1h3,819,h1h4,472,Move differs from Stockfish: h1h3 vs h1h4; Evaluation differs from Stockfish by 339cp,"MOVE_DIFFERS_FROM_REFERENCE, LARGE_EVAL_DIFF_VS_REFERENCE"
+137,8/8/8/8/8/8/3PK3/2k4r b - - 2 2,h1h2,805,h1h2,818,h1h3,728,Move differs from Stockfish: h1h2 vs h1h3,MOVE_DIFFERS_FROM_REFERENCE
+138,8/8/8/7r/8/3K4/3P4/3k4 w - - 1 2,d3c3,-825,d3e3,-823,d3c3,-479,Move changes from d3c3 to d3e3 with deeper search; Evaluation differs from Stockfish by 346cp,"MOVE_CHANGE_WITH_DEPTH, LARGE_EVAL_DIFF_VS_REFERENCE"
+139,7r/8/8/8/8/3K4/3P4/3k4 w - - 1 2,d3e3,-829,d3e3,-825,d3e4,-473,Move differs from Stockfish: d3e3 vs d3e4; Evaluation differs from Stockfish by 356cp,"MOVE_DIFFERS_FROM_REFERENCE, LARGE_EVAL_DIFF_VS_REFERENCE"
+140,8/8/8/8/3K4/8/3P4/2k4r b - - 2 2,c1d2,811,c1d2,812,c1d2,455,Evaluation differs from Stockfish by 356cp,LARGE_EVAL_DIFF_VS_REFERENCE
+141,8/8/8/8/7r/2K5/3P4/3k4 b - - 2 2,h4h3,810,h4h3,822,d1e2,531,Move differs from Stockfish: h4h3 vs d1e2; Evaluation differs from Stockfish by 279cp,"MOVE_DIFFERS_FROM_REFERENCE, LARGE_EVAL_DIFF_VS_REFERENCE"
+142,8/8/8/8/8/2K5/3P4/4k2r b - - 2 2,h1h3,818,h1h3,821,h1h4,498,Move differs from Stockfish: h1h3 vs h1h4; Evaluation differs from Stockfish by 320cp,"MOVE_DIFFERS_FROM_REFERENCE, LARGE_EVAL_DIFF_VS_REFERENCE"
