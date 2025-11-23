@@ -1,0 +1,9 @@
+Position,Baseline_Eval,Modified_Eval,Eval_Diff,Move_Change,Baseline_Move,Modified_Move,Notes
+135,-815,-502,313,YES,d3d4,d3e3,Needs review
+136,811,494,-317,NO,h1h3,h1h3,Needs review
+137,805,485,-320,YES,h1h2,h1h3,Needs review
+138,-825,-465,360,NO,d3c3,d3c3,Needs review
+139,-829,-449,380,YES,d3e3,d3d4,Needs review
+140,811,460,-351,NO,c1d2,c1d2,Needs review
+141,810,480,-330,NO,h4h3,h4h3,Needs review
+142,818,466,-352,YES,h1h3,e1e2,Needs review
