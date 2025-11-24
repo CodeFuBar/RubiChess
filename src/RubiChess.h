@@ -18,7 +18,10 @@
 #pragma once
 
 #define VERNUMLEGACY 2025
-#define NNUEDEFAULT nn-f05142b28f-20250520.nnue
+// Changed to June 2023 network for better evaluation accuracy (Phase 2 optimization)
+// Original: nn-f05142b28f-20250520.nnue (May 2025)
+// Testing showed June 2023 network has ~45% lower average evaluation difference vs Stockfish
+#define NNUEDEFAULT nn-d901a1822f-20230606.nnue
 
 // enable this switch for faster SSE2 code using 16bit integers
 #define FASTSSE2
