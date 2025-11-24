@@ -2,12 +2,24 @@
 REM ============================================================================
 REM RubiChess Optimal Build Script
 REM Automatically detects CPU features and builds the best version
+REM 
+REM Usage:
+REM   build_optimal.bat         - Standard optimized build
+REM   build_optimal.bat pgo     - Profile-Guided Optimization build (slower but faster result)
 REM ============================================================================
 
 setlocal enabledelayedexpansion
 
+REM Check for PGO mode
+set "PGO_MODE=0"
+if /i "%1"=="pgo" set "PGO_MODE=1"
+
 echo ============================================================================
-echo RubiChess Optimal Build Script
+if "%PGO_MODE%"=="1" (
+    echo RubiChess Optimal Build Script - PGO MODE
+) else (
+    echo RubiChess Optimal Build Script
+)
 echo ============================================================================
 echo.
 
@@ -164,14 +176,15 @@ if exist "%NNUENET%" (
 echo.
 
 REM ============================================================================
-REM Step 6: Compile RubiChess
+REM Step 6: Compile and Link RubiChess
 REM ============================================================================
-echo Step 6: Compiling RubiChess (optimized for %ARCHNAME%)...
 
-REM Clean old object files
+REM Clean old object files and PGO data
 del /Q *.obj 2>nul
+del /Q *.pgc 2>nul
+del /Q *.pgd 2>nul
 
-REM Build compiler flags
+REM Build base compiler flags
 set "CXXFLAGS=/nologo /EHsc /O2 /Oi /Ot /GL /MT /favor:INTEL64 /D_CONSOLE /DNDEBUG"
 
 REM Add architecture flag
@@ -182,40 +195,123 @@ for %%d in (%DEFINES%) do (
     set "CXXFLAGS=!CXXFLAGS! /D%%d"
 )
 
+set "SOURCEFILES=board.cpp engine.cpp eval.cpp main.cpp move.cpp nnue.cpp search.cpp tbprobe.cpp transposition.cpp utils.cpp book.cpp learn.cpp texel.cpp cputest.cpp"
+set "OBJFILES=board.obj engine.obj eval.obj main.obj move.obj nnue.obj search.obj tbprobe.obj transposition.obj utils.obj book.obj learn.obj texel.obj cputest.obj"
+set "LIBS=zlib\zlib.lib ws2_32.lib advapi32.lib"
+
+if not "%PGO_MODE%"=="1" goto standard_build
+
+REM ========================================================================
+REM PGO BUILD - Three-phase process
+REM ========================================================================
+echo.
+echo Step 6: PGO Build Phase 1 - Instrumented compilation...
+echo.
+
+set "PGDFILE=RubiChess_pgo.pgd"
+set "EXENAME_INSTR=RubiChess_pgo_instr.exe"
+
+REM Clean any previous PGO data
+del /Q *.pgc 2>nul
+del /Q *.pgd 2>nul
+del /Q %EXENAME_INSTR% 2>nul
+
+REM Phase 1: Build instrumented version
+echo Compiling with instrumentation...
+cl %CXXFLAGS% /c %SOURCEFILES%
+if errorlevel 1 goto compile_error
+
+echo Linking instrumented executable...
+link /nologo /LTCG:PGINSTRUMENT /PGD:%PGDFILE% /NODEFAULTLIB:OLDNAMES.lib /OUT:%EXENAME_INSTR% %OBJFILES% %LIBS%
+if errorlevel 1 goto link_error
+
+echo.
+echo ========================================================================
+echo Step 7: PGO Build Phase 2 - Profiling run
+echo ========================================================================
+echo.
+echo Running profiling workload to collect profile data...
+echo This may take 2-5 minutes...
+echo.
+
+REM Use Python script for proper engine communication
+python pgo_profile.py %EXENAME_INSTR%
+
+REM Wait for file handles to be released
+echo.
+echo Waiting for profile data to be written...
+timeout /t 3 /nobreak >nul 2>&1
+
+REM Force close any remaining handles (suppress all output)
+taskkill /F /IM %EXENAME_INSTR% >nul 2>&1
+del /Q pgo_in.txt 2>nul
+del /Q pgo_output.txt 2>nul
+
+REM Check if profile data was generated
+dir /b *.pgc >nul 2>&1
+if errorlevel 1 goto no_profile_data
+
+echo Profile data collected successfully.
+echo.
+
+echo ========================================================================
+echo Step 8: PGO Build Phase 3 - Optimized compilation
+echo ========================================================================
+echo.
+
+REM Clean object files for rebuild
+del /Q *.obj 2>nul
+
+echo Recompiling with profile optimization...
+cl %CXXFLAGS% /c %SOURCEFILES%
+if errorlevel 1 goto compile_error
+
+echo Linking with profile optimization...
+set "EXENAME=RubiChess_%ARCHNAME%_pgo.exe"
+link /nologo /LTCG:PGOPTIMIZE /PGD:%PGDFILE% /NODEFAULTLIB:OLDNAMES.lib /OUT:Release-optimal\%EXENAME% %OBJFILES% %LIBS%
+if errorlevel 1 goto link_error
+
+REM Cleanup PGO artifacts
+del /Q %EXENAME_INSTR% 2>nul
+del /Q *.pgc 2>nul
+del /Q *.pgd 2>nul
+del /Q pgo_output.txt 2>nul
+
+goto build_done
+
+:no_profile_data
+echo WARNING: No profile data generated. Falling back to standard build.
+
+:standard_build
+REM ========================================================================
+REM STANDARD BUILD - Single-phase process
+REM ========================================================================
+echo Step 6: Compiling RubiChess (optimized for %ARCHNAME%)...
+echo.
 echo Compiler flags: %CXXFLAGS%
 echo.
 
-REM Compile all source files (including cputest.cpp for GetSystemInfo)
 echo Compiling source files...
-cl %CXXFLAGS% /c board.cpp engine.cpp eval.cpp main.cpp move.cpp nnue.cpp search.cpp tbprobe.cpp transposition.cpp utils.cpp book.cpp learn.cpp texel.cpp cputest.cpp
+cl %CXXFLAGS% /c %SOURCEFILES%
+if errorlevel 1 goto compile_error
 
-if errorlevel 1 (
-    echo ERROR: Compilation failed!
-    exit /b 1
-)
-
-REM ============================================================================
-REM Step 7: Link
-REM ============================================================================
 echo.
 echo Step 7: Linking...
 
 set "EXENAME=RubiChess_%ARCHNAME%.exe"
-link /nologo /LTCG /OPT:REF /OPT:ICF /NODEFAULTLIB:OLDNAMES.lib /OUT:Release-optimal\%EXENAME% board.obj engine.obj eval.obj main.obj move.obj nnue.obj search.obj tbprobe.obj transposition.obj utils.obj book.obj learn.obj texel.obj cputest.obj zlib\zlib.lib ws2_32.lib advapi32.lib
+link /nologo /LTCG /OPT:REF /OPT:ICF /NODEFAULTLIB:OLDNAMES.lib /OUT:Release-optimal\%EXENAME% %OBJFILES% %LIBS%
+if errorlevel 1 goto link_error
 
-if errorlevel 1 (
-    echo ERROR: Linking failed!
-    exit /b 1
-)
+:build_done
 
 REM Copy network file
 copy /Y "%NNUENET%" "Release-optimal\%NNUENET%" >nul 2>&1
 
 REM ============================================================================
-REM Step 8: Cleanup
+REM Cleanup
 REM ============================================================================
 echo.
-echo Step 8: Cleaning up...
+echo Cleaning up...
 del /Q *.obj 2>nul
 del /Q cputest.exe 2>nul
 pushd zlib
@@ -233,9 +329,28 @@ echo.
 echo Output: Release-optimal\%EXENAME%
 echo Architecture: %ARCHNAME%
 echo CPU Features: %CPUFEATURES%
+if "%PGO_MODE%"=="1" (
+    echo Build Type: Profile-Guided Optimization (PGO)
+    echo.
+    echo PGO builds are typically 5-15%% faster than standard builds.
+) else (
+    echo Build Type: Standard optimized
+    echo.
+    echo For even better performance, try: build_optimal.bat pgo
+)
 echo.
 echo To test, run:
 echo   Release-optimal\%EXENAME%
 echo.
+goto end
 
+:compile_error
+echo ERROR: Compilation failed!
+exit /b 1
+
+:link_error
+echo ERROR: Linking failed!
+exit /b 1
+
+:end
 endlocal
