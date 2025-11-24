@@ -160,7 +160,10 @@ REM Step 5: Download NNUE network if needed
 REM ============================================================================
 echo Step 5: Checking NNUE network...
 
-for /f "tokens=3" %%A in ('findstr "NNUEDEFAULT " RubiChess.h') do set NNUENET=%%A
+REM Extract NNUE network name from RubiChess.h
+REM Look for: #define NNUEDEFAULT nn-xxxxx.nnue
+for /f "tokens=2 delims= " %%A in ('findstr /R "^#define NNUEDEFAULT nn-" RubiChess.h') do set NNUENET=%%A
+if "%NNUENET%"=="" set NNUENET=nn-d901a1822f-20230606.nnue
 echo Required network: %NNUENET%
 
 if not exist "%NNUENET%" (
