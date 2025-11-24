@@ -9,8 +9,10 @@ import re
 
 rubichess_avx2_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\RubiChess.exe"
 rubichess_avx512_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\RubiChess_avx512.exe"
+rubichess_pgo_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\RubiChess_avx512_pgo.exe"
 rubichess_dir_avx2 = os.path.dirname(rubichess_avx2_path)
 rubichess_dir_avx512 = os.path.dirname(rubichess_avx512_path)
+rubichess_dir_pgo = os.path.dirname(rubichess_pgo_path)
 
 # Benchmark positions
 POSITIONS = [
@@ -134,38 +136,43 @@ def benchmark_engine(name, engine_path, engine_dir):
     return avg_nps, results
 
 print("="*70)
-print("RUBICHESS PERFORMANCE COMPARISON: AVX2 vs AVX-512")
+print("RUBICHESS PERFORMANCE COMPARISON: AVX2 vs AVX-512 vs PGO")
 print("="*70)
 
 # Benchmark AVX2 build
 avx2_nps, avx2_results = benchmark_engine("AVX2 Build (Original)", rubichess_avx2_path, rubichess_dir_avx2)
 
 # Benchmark AVX-512 build
-avx512_nps, avx512_results = benchmark_engine("AVX-512 Build (Optimized)", rubichess_avx512_path, rubichess_dir_avx512)
+avx512_nps, avx512_results = benchmark_engine("AVX-512 Build", rubichess_avx512_path, rubichess_dir_avx512)
+
+# Benchmark PGO build
+pgo_nps, pgo_results = benchmark_engine("AVX-512 + PGO Build", rubichess_pgo_path, rubichess_dir_pgo)
 
 # Summary
 print("\n" + "="*70)
 print("COMPARISON SUMMARY")
 print("="*70)
 
-print(f"\n{'Position':<15} {'AVX2 NPS':>15} {'AVX-512 NPS':>15} {'Improvement':>12}")
+print(f"\n{'Position':<12} {'AVX2':>12} {'AVX-512':>12} {'AVX512+PGO':>12} {'vs AVX2':>10}")
 print("-"*60)
 
 for i, (pos_name, _) in enumerate(POSITIONS):
     avx2 = avx2_results[i][1] if i < len(avx2_results) else 0
     avx512 = avx512_results[i][1] if i < len(avx512_results) else 0
-    improvement = ((avx512 - avx2) / avx2 * 100) if avx2 > 0 else 0
-    print(f"{pos_name:<15} {avx2:>15,} {avx512:>15,} {improvement:>+11.1f}%")
+    pgo = pgo_results[i][1] if i < len(pgo_results) else 0
+    improvement = ((pgo - avx2) / avx2 * 100) if avx2 > 0 else 0
+    print(f"{pos_name:<12} {avx2:>12,} {avx512:>12,} {pgo:>12,} {improvement:>+9.1f}%")
 
 print("-"*60)
-overall_improvement = ((avx512_nps - avx2_nps) / avx2_nps * 100) if avx2_nps > 0 else 0
-print(f"{'AVERAGE':<15} {avx2_nps:>15,.0f} {avx512_nps:>15,.0f} {overall_improvement:>+11.1f}%")
+overall_improvement = ((pgo_nps - avx2_nps) / avx2_nps * 100) if avx2_nps > 0 else 0
+avx512_improvement = ((avx512_nps - avx2_nps) / avx2_nps * 100) if avx2_nps > 0 else 0
+pgo_vs_avx512 = ((pgo_nps - avx512_nps) / avx512_nps * 100) if avx512_nps > 0 else 0
+print(f"{'AVERAGE':<12} {avx2_nps:>12,.0f} {avx512_nps:>12,.0f} {pgo_nps:>12,.0f} {overall_improvement:>+9.1f}%")
 
 print("\n" + "="*70)
 print("CONCLUSION")
 print("="*70)
-if overall_improvement > 0:
-    print(f"\n[OK] AVX-512 build is {overall_improvement:.1f}% FASTER than AVX2 build!")
-else:
-    print(f"\n[!] AVX-512 build is {abs(overall_improvement):.1f}% slower (unexpected)")
-print(f"\nRecommendation: Use the AVX-512 optimized build for best performance.")
+print(f"\nAVX-512 vs AVX2:     {avx512_improvement:+.1f}%")
+print(f"PGO vs AVX-512:      {pgo_vs_avx512:+.1f}%")
+print(f"PGO vs AVX2 (total): {overall_improvement:+.1f}%")
+print(f"\nRecommendation: Use the PGO build for best performance.")
