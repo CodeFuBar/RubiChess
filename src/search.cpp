@@ -553,7 +553,11 @@ int chessposition::alphabeta(int alpha, int beta, int depth, bool cutnode)
     if (Pt == MatePrune && depth <= 0)
         return staticeval;
 
-    bool positionImproved = (ply >= 2  && staticevalstack[ply] > staticevalstack[ply - 2]);
+    bool positionImproved = (ply >= 2 && staticevalstack[ply] > staticevalstack[ply - 2]);
+    // Enhanced: Also consider 4-ply improvement as fallback
+    if (!positionImproved && ply >= 4) {
+        positionImproved = (staticevalstack[ply] > staticevalstack[ply - 4] + 20);
+    }
 
     // Razoring
     if (!PVNode && !isCheckbb && depth <= 2)
@@ -665,11 +669,12 @@ int chessposition::alphabeta(int alpha, int beta, int depth, bool cutnode)
         NnueSpeculativeEval();
     }
 
-    // No hashmove reduction
-    if (!hashmovecode && depth >= sps.nohashreductionmindepth + 2 * cutnode)
-        // PV node and no best move from hash
-        // Instead of iid the idea of Ed Schroeder to just decrease depth works well
-        depth--;
+    // No hashmove reduction (IIR - Internal Iterative Reductions)
+    // Enhanced: More aggressive reduction at higher depths
+    if (!hashmovecode && depth >= 4) {
+        // Reduce by 1, plus extra reduction at depth >= 8
+        depth -= 1 + (depth >= 8);
+    }
 
     // Get possible countermove from table
     uint32_t lastmove = movecode[ply - 1];
@@ -851,6 +856,10 @@ int chessposition::alphabeta(int alpha, int beta, int depth, bool cutnode)
             // less reduction if next ply had few fail highs
             if (failhighcount[ply] < 4)
                 reduction -= (5 - failhighcount[ply]) / 2;
+
+            // less reduction for killer moves
+            if (mc == killer[ply][0] || mc == killer[ply][1])
+                reduction -= 1;
 
             STATISTICSINC(red_pi[positionImproved]);
             STATISTICSADD(red_lmr[positionImproved], reductiontable[positionImproved][depth][min(63, legalMoves + 1)]);
