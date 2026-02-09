@@ -18,11 +18,10 @@
 #pragma once
 
 #define VERNUMLEGACY 2025
-// Changed to October 2025 network for best evaluation accuracy
-// Previous: nn-d901a1822f-20230606.nnue (June 2023) - 30.3 cp avg diff vs Stockfish
-// Current:  nn-be4dcd7c83-20251031.nnue (Oct 2025) - 14.6 cp avg diff vs Stockfish
-// Testing showed October 2025 network is 52% more accurate than June 2023
-#define NNUEDEFAULT nn-be4dcd7c83-20251031.nnue
+// Updated to latest NNUE network (January 2026)
+// Previous: nn-be4dcd7c83-20251031.nnue (Oct 2025)
+// Current:  nn-b069721887-20260102.nnue (Jan 2026)
+#define NNUEDEFAULT nn-b069721887-20260102.nnue
 
 // enable this switch for faster SSE2 code using 16bit integers
 #define FASTSSE2
