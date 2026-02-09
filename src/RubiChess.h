@@ -2319,7 +2319,7 @@ struct searchparamset {
     searchparam SP(seeprunequietfactor, 2, 1, 8);
     // Singular extension
     searchparam SP(singularmindepth, 8, 2, 16);
-    searchparam SP(singularmarginperdepth, 0, 0, 20);
+    searchparam SP(singularmarginperdepth, 2, 0, 20);  // Enhanced: Enable depth-scaling (was 0/disabled)
     searchparam SP(singularmarginfor2, 23, 0, 80);
     // History extension
     searchparam SP(histextminthreshold, 9, 6, 11);
