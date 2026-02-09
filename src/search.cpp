@@ -862,9 +862,20 @@ int chessposition::alphabeta(int alpha, int beta, int depth, bool cutnode)
         int reduction = 0;
         if (depth >= sps.lmrmindepth)
         {
-            reduction = reductiontable[positionImproved][depth][min(63, legalMoves + 1)];
+            // Apply LMR to bad captures (losing exchanges)
+            if (ISTACTICAL(mc) && (mc & BADSEEFLAG))
+            {
+                // Bad capture - apply reduced LMR (half of normal reduction)
+                reduction = reductiontable[positionImproved][depth][min(63, legalMoves + 1)] / 2;
+            }
+            else if (!ISTACTICAL(mc))
+            {
+                // Quiet move - apply full LMR
+                reduction = reductiontable[positionImproved][depth][min(63, legalMoves + 1)];
+            }
+            // Good captures (no BADSEEFLAG) get no reduction (reduction stays 0)
 
-            // more reduction at cut nodes
+            // more reduction at cut nodes (only for quiet moves and bad captures)
             reduction += (cutnode && !ISTACTICAL(mc));
 
             // adjust reduction by stats value
