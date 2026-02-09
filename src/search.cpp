@@ -156,13 +156,40 @@ inline void chessposition::updateHistory(uint32_t code, int value)
 }
 
 
+inline int chessposition::getCaptureHistory(uint32_t code)
+{
+    if (!ISCAPTURE(code))
+        return 0;
+    
+    int pc = GETPIECE(code);
+    int to = GETTO(code);
+    int captured = GETCAPTURE(code) >> 1;
+    return captureHistory[pc][to][captured];
+}
+
+
+inline void chessposition::updateCaptureHistory(uint32_t code, int value)
+{
+    if (!ISCAPTURE(code))
+        return;
+    
+    int pc = GETPIECE(code);
+    int to = GETTO(code);
+    int captured = GETCAPTURE(code) >> 1;
+    
+    value = max(-HISTORYMAXDEPTH * HISTORYMAXDEPTH, min(HISTORYMAXDEPTH * HISTORYMAXDEPTH, value));
+    int delta = value * (1 << HISTORYNEWSHIFT) - captureHistory[pc][to][captured] * abs(value) / (1 << HISTORYAGESHIFT);
+    captureHistory[pc][to][captured] += delta;
+}
+
+
 inline int chessposition::getTacticalHst(uint32_t code)
 {
     int pt = GETPIECE(code) >> 1;
     int to = GETTO(code);
     int cp = GETCAPTURE(code) >> 1;
 
-    return tacticalhst[pt][to][cp];
+    return tacticalhst[pt][to][cp] + getCaptureHistory(code);
 }
 
 
@@ -951,6 +978,14 @@ int chessposition::alphabeta(int alpha, int beta, int depth, bool cutnode)
                         updateTacticalHst(mc, depth * depth);
                         for (int i = 0; i < tacticalPlayed; i++)
                             updateTacticalHst(tacticalMoves[ply][i], -(depth * depth));
+                        
+                        // Update Capture History for captures
+                        if (ISCAPTURE(mc))
+                        {
+                            updateCaptureHistory(mc, depth * depth);
+                            for (int i = 0; i < tacticalPlayed; i++)
+                                updateCaptureHistory(tacticalMoves[ply][i], -(depth * depth));
+                        }
                     }
 
                     failhighcount[ply] += (!hashmovecode + 1);

@@ -1693,6 +1693,7 @@ public:
     uint32_t countermove[14][64];
     int16_t pawncorrectionhistory[2][CORRHISTSIZE];
     int16_t nonpawncorrectionhistory[2][2][CORRHISTSIZE];
+    int16_t captureHistory[16][64][7];  // [piece][to_square][captured_piece_type]
     int16_t* prerootconthistptr[6];
     int16_t* conthistptr[MAXDEPTH];
 
@@ -1820,6 +1821,8 @@ public:
     void reapplyPv(uint32_t* table, int num);
     int getHistory(uint32_t code);
     int getTacticalHst(uint32_t code);
+    int getCaptureHistory(uint32_t code);
+    void updateCaptureHistory(uint32_t code, int value);
     int correctEvalByHistory(int v);
     void resetStats();
     inline bool CheckForImmediateStop();

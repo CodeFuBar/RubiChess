@@ -321,8 +321,8 @@ Write-Host "Step 9: Linking..." -ForegroundColor Yellow
 $ExeName = "RubiChess_$ArchName.exe"
 $ExePath = Join-Path $OutputDir $ExeName
 
-# Get list of object files (excluding cputest)
-$ObjFiles = Get-ChildItem "*.obj" | Where-Object { $_.Name -ne "cputest.obj" -and $_.Name -ne "cputest_simple.obj" } | ForEach-Object { $_.Name }
+# Get list of object files
+$ObjFiles = Get-ChildItem "*.obj" | Where-Object { $_.Name -ne "cputest_simple.obj" } | ForEach-Object { $_.Name }
 
 $LinkFlags = @(
     "/nologo", "/LTCG", "/OPT:REF", "/OPT:ICF",
