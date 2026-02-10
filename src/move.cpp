@@ -309,16 +309,19 @@ void chessposition::tbFilterRootMoves()
 
     if (tbPosition)
     {
-        // Sort the moves
+        // Sort the moves - efficient selection sort
         for (int i = 0; i < rootmovelist.length; i++)
         {
+            int best = i;
             for (int j = i + 1; j < rootmovelist.length; j++)
             {
-                if (rootmovelist.move[i] < rootmovelist.move[j])
+                if (rootmovelist.move[j] > rootmovelist.move[best])
                 {
-                    swap(rootmovelist.move[i], rootmovelist.move[j]);
+                    best = j;
                 }
             }
+            if (best != i)
+                swap(rootmovelist.move[i], rootmovelist.move[best]);
         }
         defaultmove = rootmovelist.move[0].code;
     }

@@ -1174,9 +1174,13 @@ int chessposition::rootsearch(int alpha, int beta, int depth, int inWindowLast, 
 
     for (int i = 0; i < rootmovelist.length; i++)
     {
+        // Efficient partial sort: move best remaining move to position i
+        int best = i;
         for (int j = i + 1; j < rootmovelist.length; j++)
-            if (rootmovelist.move[i] < rootmovelist.move[j])
-                swap(rootmovelist.move[i], rootmovelist.move[j]);
+            if (rootmovelist.move[j].value > rootmovelist.move[best].value)
+                best = j;
+        if (best != i)
+            swap(rootmovelist.move[i], rootmovelist.move[best]);
 
         U64 nodesbeforemove = nodes;
 
