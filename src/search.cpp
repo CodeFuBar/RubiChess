@@ -1582,6 +1582,15 @@ void mainSearch(searchthread *thr)
         }
         if (inWindow == 1)
         {
+            if (isMainThread && lastiterationscore != NOSCORE)
+            {
+                int scoreDiff = abs(pos->bestmovescore[0] - lastiterationscore);
+                if (scoreDiff > 30)
+                    en.scoreInstability = min(3, en.scoreInstability + 1);
+                else if (scoreDiff < 10)
+                    en.scoreInstability = max(0, en.scoreInstability - 1);
+            }
+
             if (lastiterationscore > pos->bestmovescore[0] + 10)
             {
                 // Score decreases; use more thinking time

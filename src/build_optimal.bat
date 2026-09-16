@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================================
-REM RubiChess Optimal Build Script
+REM Sapphire Optimal Build Script
 REM Automatically detects CPU features and builds the best version
 REM 
 REM Usage:
@@ -16,9 +16,9 @@ if /i "%1"=="pgo" set "PGO_MODE=1"
 
 echo ============================================================================
 if "%PGO_MODE%"=="1" (
-    echo RubiChess Optimal Build Script - PGO MODE
+    echo Sapphire Optimal Build Script - PGO MODE
 ) else (
-    echo RubiChess Optimal Build Script
+    echo Sapphire Optimal Build Script
 )
 echo ============================================================================
 echo.
@@ -160,7 +160,7 @@ REM Step 5: Download NNUE network if needed
 REM ============================================================================
 echo Step 5: Checking NNUE network...
 
-REM Extract NNUE network name from RubiChess.h
+REM Extract NNUE network name from Sapphire's RubiChess-derived header
 REM Look for: #define NNUEDEFAULT nn-xxxxx.nnue
 for /f "tokens=2 delims= " %%A in ('findstr /R "^#define NNUEDEFAULT nn-" RubiChess.h') do set NNUENET=%%A
 if "%NNUENET%"=="" set NNUENET=nn-be4dcd7c83-20251031.nnue
@@ -179,7 +179,7 @@ if exist "%NNUENET%" (
 echo.
 
 REM ============================================================================
-REM Step 6: Compile and Link RubiChess
+REM Step 6: Compile and Link Sapphire
 REM ============================================================================
 
 REM Clean old object files and PGO data
@@ -211,8 +211,8 @@ echo.
 echo Step 6: PGO Build Phase 1 - Instrumented compilation...
 echo.
 
-set "PGDFILE=RubiChess_pgo.pgd"
-set "EXENAME_INSTR=RubiChess_pgo_instr.exe"
+set "PGDFILE=Sapphire_pgo.pgd"
+set "EXENAME_INSTR=Sapphire_pgo_instr.exe"
 
 REM Clean any previous PGO data
 del /Q *.pgc 2>nul
@@ -270,7 +270,7 @@ cl %CXXFLAGS% /c %SOURCEFILES%
 if errorlevel 1 goto compile_error
 
 echo Linking with profile optimization...
-set "EXENAME=RubiChess_%ARCHNAME%_pgo.exe"
+set "EXENAME=Sapphire_%ARCHNAME%_pgo.exe"
 link /nologo /LTCG:PGOPTIMIZE /PGD:%PGDFILE% /NODEFAULTLIB:OLDNAMES.lib /OUT:Release-optimal\%EXENAME% %OBJFILES% %LIBS%
 if errorlevel 1 goto link_error
 
@@ -289,7 +289,7 @@ echo WARNING: No profile data generated. Falling back to standard build.
 REM ========================================================================
 REM STANDARD BUILD - Single-phase process
 REM ========================================================================
-echo Step 6: Compiling RubiChess (optimized for %ARCHNAME%)...
+echo Step 6: Compiling Sapphire (optimized for %ARCHNAME%)...
 echo.
 echo Compiler flags: %CXXFLAGS%
 echo.
@@ -301,7 +301,7 @@ if errorlevel 1 goto compile_error
 echo.
 echo Step 7: Linking...
 
-set "EXENAME=RubiChess_%ARCHNAME%.exe"
+set "EXENAME=Sapphire_%ARCHNAME%.exe"
 link /nologo /LTCG /OPT:REF /OPT:ICF /NODEFAULTLIB:OLDNAMES.lib /OUT:Release-optimal\%EXENAME% %OBJFILES% %LIBS%
 if errorlevel 1 goto link_error
 

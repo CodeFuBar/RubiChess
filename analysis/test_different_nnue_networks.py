@@ -10,7 +10,7 @@ import re
 import urllib.request
 
 # RubiChess binary
-rubichess_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\RubiChess.exe"
+rubichess_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\Sapphire.exe"
 rubichess_dir = os.path.dirname(rubichess_path)
 
 # Available NNUE networks from https://github.com/Matthies/NN

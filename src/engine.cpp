@@ -834,6 +834,15 @@ void engine::resetEndTime(U64 nowTime, int constantRootMoves, int bestmovenodesr
         endtime1 = endtime2 = 0;
     }
 
+    if (tmEnabled && scoreInstability > 0)
+    {
+        double instabilityFactor = 1.0 + 0.1 * min(scoreInstability, 3);
+        if (endtime1 > thinkStartTime)
+            endtime1 = thinkStartTime + (U64)((endtime1 - thinkStartTime) * instabilityFactor);
+        if (endtime2 > clockStartTime)
+            endtime2 = clockStartTime + (U64)((endtime2 - clockStartTime) * instabilityFactor);
+    }
+
     if ((S64)(endtime2 - nowTime) < 0)
         // Fix endtime2 for engine delay measure
         endtime2 = nowTime;
@@ -852,7 +861,10 @@ void engine::startSearchTime(bool ponderhit)
 {
     clockstarttime = getTime();
     if (!ponderhit)
+    {
         thinkstarttime = clockstarttime;
+        scoreInstability = 0;
+    }
 }
 
 

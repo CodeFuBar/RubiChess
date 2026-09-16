@@ -52,7 +52,7 @@ ifeq ($(COMP),)
 endif
 
 ifeq ($(EXE),)
-	EXE=RubiChess
+	EXE=Sapphire
 endif
 
 CXXFLAGS=-std=c++11 -Wall -pedantic -Wextra -Wshadow

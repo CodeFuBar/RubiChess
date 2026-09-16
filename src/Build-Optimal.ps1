@@ -1,13 +1,13 @@
 <#
 .SYNOPSIS
-    RubiChess Optimal Build Script
+    Sapphire Optimal Build Script
     Automatically detects CPU features and builds the best version
 
 .DESCRIPTION
     This script:
     1. Detects your CPU features (AVX-512, AVX2, BMI2, etc.)
     2. Determines the optimal build configuration
-    3. Compiles RubiChess with maximum optimizations for your CPU
+    3. Compiles Sapphire with maximum optimizations for your CPU
 
 .EXAMPLE
     .\Build-Optimal.ps1
@@ -25,7 +25,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 Write-Host "============================================================================" -ForegroundColor Cyan
-Write-Host "RubiChess Optimal Build Script" -ForegroundColor Cyan
+Write-Host "Sapphire Optimal Build Script" -ForegroundColor Cyan
 Write-Host "============================================================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -275,8 +275,8 @@ elseif (Test-Path $NnueNet) {
 Write-Host ""
 #endregion
 
-#region Compile RubiChess
-Write-Host "Step 8: Compiling RubiChess (optimized for $ArchName)..." -ForegroundColor Yellow
+#region Compile Sapphire
+Write-Host "Step 8: Compiling Sapphire (optimized for $ArchName)..." -ForegroundColor Yellow
 
 # Clean up any leftover object files first
 Remove-Item "*.obj" -Force -ErrorAction SilentlyContinue
@@ -318,7 +318,7 @@ Write-Host ""
 #region Link
 Write-Host "Step 9: Linking..." -ForegroundColor Yellow
 
-$ExeName = "RubiChess_$ArchName.exe"
+$ExeName = "Sapphire_$ArchName.exe"
 $ExePath = Join-Path $OutputDir $ExeName
 
 # Get list of object files

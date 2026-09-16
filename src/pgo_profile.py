@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PGO Profiling Script for RubiChess
+PGO Profiling Script for Sapphire
 Runs the instrumented engine through various workloads to generate profile data.
 """
 import subprocess
@@ -40,7 +40,7 @@ POSITIONS = [
 def run_profiling(engine_path):
     """Run the engine through profiling workload"""
     print("="*70)
-    print("RubiChess PGO Profiling Script")
+    print("Sapphire PGO Profiling Script")
     print("="*70)
     print(f"\nEngine: {engine_path}")
     print(f"Positions: {len(POSITIONS)}")
@@ -154,7 +154,7 @@ def run_profiling(engine_path):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         # Default to instrumented executable
-        engine = "RubiChess_pgo_instr.exe"
+        engine = "Sapphire_pgo_instr.exe"
     else:
         engine = sys.argv[1]
     

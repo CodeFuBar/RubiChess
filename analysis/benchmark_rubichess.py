@@ -7,12 +7,12 @@ import os
 import time
 import re
 
-rubichess_avx2_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\RubiChess.exe"
-rubichess_avx512_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\RubiChess_avx512.exe"
-rubichess_pgo_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\RubiChess_avx512_pgo.exe"
-rubichess_dir_avx2 = os.path.dirname(rubichess_avx2_path)
-rubichess_dir_avx512 = os.path.dirname(rubichess_avx512_path)
-rubichess_dir_pgo = os.path.dirname(rubichess_pgo_path)
+sapphire_avx2_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\x64\Release\Sapphire.exe"
+sapphire_avx512_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\Sapphire_avx512.exe"
+sapphire_pgo_path = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\Sapphire_avx512_pgo.exe"
+sapphire_dir_avx2 = os.path.dirname(sapphire_avx2_path)
+sapphire_dir_avx512 = os.path.dirname(sapphire_avx512_path)
+sapphire_dir_pgo = os.path.dirname(sapphire_pgo_path)
 
 # Benchmark positions
 POSITIONS = [
@@ -140,13 +140,13 @@ print("RUBICHESS PERFORMANCE COMPARISON: AVX2 vs AVX-512 vs PGO")
 print("="*70)
 
 # Benchmark AVX2 build
-avx2_nps, avx2_results = benchmark_engine("AVX2 Build (Original)", rubichess_avx2_path, rubichess_dir_avx2)
+avx2_nps, avx2_results = benchmark_engine("AVX2 Build (Original)", sapphire_avx2_path, sapphire_dir_avx2)
 
 # Benchmark AVX-512 build
-avx512_nps, avx512_results = benchmark_engine("AVX-512 Build", rubichess_avx512_path, rubichess_dir_avx512)
+avx512_nps, avx512_results = benchmark_engine("AVX-512 Build", sapphire_avx512_path, sapphire_dir_avx512)
 
 # Benchmark PGO build
-pgo_nps, pgo_results = benchmark_engine("AVX-512 + PGO Build", rubichess_pgo_path, rubichess_dir_pgo)
+pgo_nps, pgo_results = benchmark_engine("AVX-512 + PGO Build", sapphire_pgo_path, sapphire_dir_pgo)
 
 # Summary
 print("\n" + "="*70)

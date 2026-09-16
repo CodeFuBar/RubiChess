@@ -17,7 +17,7 @@
 
 #pragma once
 
-#define VERNUMLEGACY 2025
+#define VERNUMLEGACY 2026
 // Updated to latest NNUE network (January 2026)
 // Previous: nn-be4dcd7c83-20251031.nnue (Oct 2025)
 // Current:  nn-b069721887-20260102.nnue (Jan 2026)
@@ -201,7 +201,7 @@ typedef unsigned int PieceType;
 #else
 #define VERSION GITVER
 #endif
-#define ENGINEVER "RubiChess+ " VERSION
+#define ENGINEVER "Sapphire " VERSION
 #ifdef GITID
 #define BUILD "commit " GITID " " COMPILER
 #else
@@ -2080,7 +2080,7 @@ class engine
 public:
     engine(compilerinfo *c);
     ~engine();
-    const string author = "Andreas Matthies, modified by Martin van der Hoek";
+    const string author = "Andreas Matthies (RubiChess), modified by Martin van der Hoek";
     U64 thinkstarttime;
     U64 clockstarttime;
     U64 clockstoptime;
@@ -2125,6 +2125,7 @@ public:
     int ponderhitbonus;
     int lastReport;
     int lastbestmovescore;
+    int scoreInstability = 0;
     int benchdepth;
     string benchmove;
     string benchpondermove;

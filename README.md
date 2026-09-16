@@ -1,11 +1,10 @@
-# RubiChess
-Just another UCI compliant chess engine. Have a look at the ChangeLog for a detailed feature list.
+# Sapphire
+Sapphire is a modified UCI-compatible chess engine based on RubiChess by Andreas Matthies. Have a look at the ChangeLog for a detailed feature list.
 
-'UCI compliant' means that for best user experience you need a chess GUI like Arena, CuteChess or BanksiaGUI (just to name some free programs) and install RubiChess as an engine in this GUI.
+'UCI compliant' means that for best user experience you need a chess GUI like Arena, CuteChess or BanksiaGUI (just to name some free programs) and install Sapphire as an engine in this GUI.
 
-RubiChess development started in 2016 as a private hobby project to practise programming in C++ and to see the engine improving compared
-to earlier releases. Meanwhile some years later RubiChess got pretty competitive and is listed in most of the rankings and plays
-a lot of even big tournaments.
+The original RubiChess development started in 2016 as a private hobby project to practise programming in C++ and to see the engine improving compared
+to earlier releases. Sapphire continues that work with additional search, evaluation, and performance improvements.
 
 I'm still not very good in C++ using a C-style code most of the time but the whole project was and is a lot of fun.
 
@@ -19,7 +18,7 @@ Not mentioned all the other documentation and tools freely available.
 
 Also a big thank you goes to the guys at http://chess.grantnet.us/ especially to Andrew Grant for running and improving this testing framework and to Bojun Guo (noobpwnftw) for spending all the hardware resources for testing.
 ## NNUE
-Starting with version 1.9 RubiChess supports evaluation using NNUE weight files. With version 2.0 NNUE evaluation becomes the default.
+Starting with version 1.9, the RubiChess codebase supports evaluation using NNUE weight files. Sapphire uses NNUE evaluation by default.
 
 Disable the 'Use_NNUE' option for so called handcrafted evaluation.
 
@@ -31,18 +30,18 @@ Current default net will be downloaded automatically when compiling the engine a
 
 ## Binaries and hints to build some
 I provide release binary packages for Windows x64 only. Depending on the type of your x86-64 CPU you can choose from
-- __RubiChess-x86-64-avx512__: For best performance on new Intel CPUs supporting the AVX512 extensions.
-- __RubiChess-x86-64-bmi2__: For best performance on modern Intel CPUs and AMD Ryzen starting from Zen3/5?00X CPU
-- __RubiChess-x86-64-avx2__: For best performance on modern AMD Ryzen Zen/Zen2
-- __RubiChess-x86-64-modern__: For older CPUs that support POPCNT but no AVX2
-- __RubiChess-x86-64-ssse3__: For even older CPUs with SSSE3 but no POPCNT
-- __RubiChess-x86-64-sse3-popcount__: For old AMD CPUs supporting POPCNT and SSE3 but no SSSE3 like Phenom II
-- __RubiChess-x86-64-sse2__: This should run on even oldest x86-64 CPU
-- __RubiChess-x86-64__: Native and slowest build without SIMD support, just for debugging purposes
+- __Sapphire-x86-64-avx512__: For best performance on new Intel CPUs supporting the AVX512 extensions.
+- __Sapphire-x86-64-bmi2__: For best performance on modern Intel CPUs and AMD Ryzen starting from Zen3/5?00X CPU
+- __Sapphire-x86-64-avx2__: For best performance on modern AMD Ryzen Zen/Zen2
+- __Sapphire-x86-64-modern__: For older CPUs that support POPCNT but no AVX2
+- __Sapphire-x86-64-ssse3__: For even older CPUs with SSSE3 but no POPCNT
+- __Sapphire-x86-64-sse3-popcount__: For old AMD CPUs supporting POPCNT and SSE3 but no SSSE3 like Phenom II
+- __Sapphire-x86-64-sse2__: This should run on even oldest x86-64 CPU
+- __Sapphire-x86-64__: Native and slowest build without SIMD support, just for debugging purposes
 
 You will get a warning at startup if the selected binary doesn't match your CPU or it will just crash.
 
-RubiChess should build successfully on any x64 Linux, on MacOS (x64 and ARM64/M1) and on Raspbian (at least up to Raspi 3 and 4 which I own and tested) using ```make``` from inside the src subfolder.
+Sapphire should build successfully on any x64 Linux, on MacOS (x64 and ARM64/M1) and on Raspbian (at least up to Raspi 3 and 4 which I own and tested) using ```make``` from inside the src subfolder.
 
 For fastest binaries you should use the Intel icx compiler (based on Clang/LLVM but with Intel's optimizations) and the following build command
 

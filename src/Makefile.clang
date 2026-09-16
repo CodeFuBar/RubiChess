@@ -50,7 +50,7 @@ PROFEXE=RubiChess-WinProf
 NETURL=https://github.com/Matthies/NN/raw/main/
 TMPNN=_tmp.nnue
 CPUTEST=cputest
-EXE=RubiChess
+EXE=Sapphire
 GIT=git
 NATIVEFLAGS=_nativeflags.txt
 SDEDEFAULT="C:\bin\SDE\sde.exe"
@@ -258,12 +258,12 @@ profile-build: cpuflags printarch
 	@nmake -c -f Makefile.clang profile-clean
 
 pgo-rename: printarch pgo
-	@move $(RELDIR)\$(EXE).exe $(RELDIR)\$(EXE)-$(VERSION)_$(ARCH).exe 1>nul
-	@echo Successfully built $(EXE)-$(VERSION)_$(ARCH)
+	@move $(RELDIR)\$(EXE).exe $(RELDIR)\$(EXE)_$(ARCH).exe 1>nul
+	@echo Successfully built $(EXE)_$(ARCH)
 
 build-rename: build
-	@move $(RELDIR)\$(EXE).exe $(RELDIR)\$(EXE)-$(VERSION)_$(ARCH).exe 1>nul
-	@echo Successfully built $(EXE)-$(VERSION)_$(ARCH)
+	@move $(RELDIR)\$(EXE).exe $(RELDIR)\$(EXE)_$(ARCH).exe 1>nul
+	@echo Successfully built $(EXE)_$(ARCH)
 
 releaseversion:
 	@echo Version: $(VERSION)

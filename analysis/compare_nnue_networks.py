@@ -8,7 +8,7 @@ import os
 import time
 
 # Paths
-RUBICHESS_PATH = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\RubiChess_avx512_pgo.exe"
+RUBICHESS_PATH = r"D:\Windsurf\RubiChessAdvanced\RubiChess\src\Release-optimal\Sapphire_avx512_pgo.exe"
 RUBICHESS_DIR = os.path.dirname(RUBICHESS_PATH)
 STOCKFISH_PATH = r"D:\Windsurf\RubiChessAdvanced\ChessEngineTestFramework\engines\stockfish_25090605_x64_avx2.exe"
 
